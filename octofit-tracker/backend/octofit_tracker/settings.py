@@ -123,9 +123,23 @@ USE_TZ = True
 
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 STATIC_URL = 'static/'
+
+# Codespace base URL for use in API or frontend
+import os
+CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
+if CODESPACE_NAME:
+    CODESPACE_BASE_URL = f"https://{CODESPACE_NAME}-8000.app.github.dev"
+else:
+    CODESPACE_BASE_URL = "http://localhost:8000"
+
+# Repository metadata
+REPO_OWNER = "rheera0001"
+REPO_NAME = "learningpart2"
+REPO_URL = "https://github.com/codespaces?repository_id=1202027881"
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
